@@ -1,0 +1,250 @@
+:root {
+  --azul-escuro: hsl(215, 32%, 20%);
+  --azul: hsl(215, 45%, 35%);
+  --azul-claro: hsl(215, 45%, 90%);
+  --branco: #ffffff;
+  --cinza: hsl(215, 20%, 40%);
+  --fonte: 'Arial', sans-serif;
+  --radius: 0.75rem;
+  --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: var(--fonte);
+  background-color: var(--azul-claro);
+  color: var(--azul-escuro);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+}
+
+a:focus, .botao:focus {
+  outline: 2px dashed var(--azul);
+  outline-offset: 2px;
+}
+
+/* Utilitários */
+.container {
+  width: min(90%, 1024px);
+  margin-inline: auto;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tipografia */
+.subtitulo {
+  font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem);
+  font-weight: 600;
+  text-align: center;
+  color: var(--azul-escuro);
+  margin-bottom: 1rem;
+}
+
+.texto {
+  font-size: 1rem;
+  color: var(--cinza);
+  line-height: 1.6;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.caixa-textos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.caixa-textos .texto {
+  background-color: var(--branco);
+  border: 1px solid var(--cinza);
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 300px;
+  text-align: left;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+/* Cabeçalho */
+header {
+  background-color: var(--azul-escuro);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 1rem 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.botao {
+  text-decoration: none;
+  color: var(--branco);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  transition: background-color 0.3s ease;
+}
+
+.botao:hover,
+.botao:focus {
+  background-color: var(--azul);
+}
+
+/* Seções */
+section {
+  padding: clamp(2rem, 5vw, 4rem) 1rem;
+  background-color: var(--azul-claro);
+}
+
+.backgroundContainerSobre,
+.containerMVV,
+.containerHabilidades,
+.containerTrabalhos {
+  background-color: #f7f9fb;
+  border-top: 1px solid #d1dce5;
+}
+
+/* Imagem de perfil */
+.circulo img {
+  border-radius: 50%;
+  max-width: 180px;
+  object-fit: cover;
+  border: 3px solid var(--azul);
+  transition: transform 0.4s ease;
+}
+
+.circulo img:hover {
+  transform: scale(1.025);
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+figure img {
+  max-width: 800px;
+  border-radius: var(--radius);
+  transition: transform 0.4s ease;
+  object-fit: cover;
+}
+
+figure img:hover,
+figure img:focus {
+  transform: scale(1.02);
+}
+
+/* Convite */
+.containerConvite figure img {
+  width: 40%;
+  max-width: 600px;
+}
+
+/* Rodapé */
+footer {
+  background-color: var(--azul-escuro);
+  color: var(--branco);
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.containerRedesSociais img {
+  width: 30px;
+  height: 30px;
+  margin: 0 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.containerRedesSociais a:hover img {
+  transform: scale(1.1);
+}
+
+/* Animações */
+[data-animar] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animado {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  .marginSite {
+    margin: 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  .circulo img {
+    max-width: 140px;
+  }
+
+  .subtitulo {
+    font-size: 1.5rem;
+  }
+
+  .texto {
+    font-size: 0.95rem;
+  }
+}

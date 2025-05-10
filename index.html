@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfólio de Kelen Machado, Especialista em DP, Analista de RH e Dados" />
+    <meta http-equiv="Cache-Control" content="max-age=31536000, public" />
+    <title>Portfólio | Kelen Machado</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+  <header>
+    <nav class="container flex" aria-label="Navegação principal">
+      <ul class="flex">
+        <li><a class="botao" href="#sobre" aria-current="page">Home</a></li>
+        <li><a class="botao" href="#sobre">Sobre</a></li>
+        <li><a class="botao" href="#objetivo">Objetivo</a></li>
+        <li><a class="botao" href="#habilidades">Habilidades</a></li>
+        <li><a class="botao" href="#projetos">Projetos</a></li>
+        <li><a class="botao" href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="sobre" class="containerSobre" aria-labelledby="titulo-sobre">
+      <h2 id="titulo-sobre" class="subtitulo">Sobre</h2>
+    </section>
+
+    <section class="backgroundContainerSobre">
+      <div class="container">
+        <figure class="circulo">
+          <img src="img/Foto_Perfil.webp" width="180" height="180" alt="Foto de Kelen Machado" loading="eager" fetchpriority="high" decoding="async" />
+        </figure>
+        <h1 class="subtitulo"><strong>Kelen Machado</strong></h1>
+        <h2 class="titulo"><strong>Especialista em DP, Analista de RH e Dados</strong></h2>
+        <div class="caixa-textos">
+          <div class="texto"><strong>Experiência: </strong>Mais de 25 anos atuando no mercado de contabilidade, há 10 anos na área de departamento pessoal, recursos humanos e há 2 anos na análise de dados.</div>
+          <div class="texto"><strong>Formação: </strong>Técnico em Contabilidade pelo Senac, Superior em Gestão de Recursos Humanos pela Anhanguera e em andamento Análise e Desenvolvimento de Sistemas pela Uníntese.</div>
+          <div class="texto"><strong>Especializações: </strong>MBA em Gestão de Departamento Pessoal e Relações Trabalhistas pela Estácio de Sá, Pós-Graduação em Análise de Dados e MBA em Data Science pela Anhanguera.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="objetivo" class="containerMVV" aria-label="Missão, Visão e Valores">
+      <h2 class="subtitulo">Objetivo</h2>
+      <figure>
+        <img src="img/MVV_5.webp" width="780" height="780" alt="Imagem com Missão, Visão e Valores" loading="lazy" decoding="async" />
+      </figure>
+    </section>
+
+    <section id="habilidades" class="containerHabilidades" aria-labelledby="titulo-habilidades">
+      <h2 id="titulo-habilidades" class="subtitulo">Habilidades</h2>
+      <figure>
+        <img src="img/Skills.webp" width="780" height="780" alt="Gráfico representando habilidades de Kelen Machado" loading="lazy" decoding="async" />
+      </figure>
+    </section>
+
+    <section id="projetos" class="containerTrabalhos" aria-labelledby="titulo-projetos">
+      <h2 id="titulo-projetos" class="subtitulo">Projetos</h2>
+      <figure>
+        <img src="img/Dash_Projetos.webp" width="780" height="780" alt="Imagem representando projetos desenvolvidos" loading="lazy" decoding="async" />
+      </figure>
+    </section>
+  </main>
+
+  <footer>
+    <div class="containerRodape">
+      <div class="containerConvite">
+        <figure>
+          <img src="img/Convite.webp" width="150" height="150" alt="Imagem com convite de contato" loading="lazy" decoding="async" />
+        </figure>
+      </div>
+      <div id="contato" class="containerRedesSociais" aria-label="Redes Sociais">
+        <div class="flex">
+            <a href="https://www.facebook.com/kelen.carvalho.5" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="img/facebook.png" alt="Ícone do Facebook" loading="lazy" decoding="async" /></a>
+            <a href="https://www.instagram.com/kelenribcarvalho/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="img/instagram.png" alt="Ícone do Instagram" loading="lazy" decoding="async" /></a>
+            <a href="https://www.linkedin.com/in/kelen-machado-758b393a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="img/linkedin.png" alt="Ícone do LinkedIn" loading="lazy" decoding="async" /></a>
+            <a href="https://github.com/KelenMachado" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><img src="img/GitHub.png" alt="Ícone do GitHub" loading="lazy" decoding="async" /></a>
+            <a href="https://wa.me/556199225486" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><img src="img/whatsapp.png" alt="Ícone do WhatsApp" loading="lazy" decoding="async" /></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Animações ao rolar
+    const elementos = document.querySelectorAll('[data-animar]');
+    function animarScroll() {
+      const topoPagina = window.scrollY + (window.innerHeight * 0.85);
+      elementos.forEach(el => {
+        if (topoPagina > el.offsetTop) {
+          el.classList.add('animado');
+        }
+      });
+    }
+    window.addEventListener('scroll', animarScroll);
+    document.addEventListener('DOMContentLoaded', animarScroll);
+
+    // Rolagem suave ajustando menu fixo
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const destino = document.querySelector(this.getAttribute('href'));
+        if (destino) {
+          window.scrollTo({
+            top: destino.offsetTop - 70,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
