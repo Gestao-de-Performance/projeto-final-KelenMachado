@@ -1,12 +1,13 @@
+/* Variáveis */
 :root {
   --azul-escuro: hsl(215, 32%, 20%);
   --azul: hsl(215, 45%, 35%);
   --azul-claro: hsl(215, 45%, 90%);
   --branco: #ffffff;
   --cinza: hsl(215, 20%, 40%);
-  --fonte: 'Arial', sans-serif;
+  --fonte: 'Inter', sans-serif;
   --radius: 0.75rem;
-  --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Reset */
@@ -18,7 +19,6 @@
   padding: 0;
 }
 
-/* Base */
 html {
   scroll-behavior: smooth;
 }
@@ -42,11 +42,8 @@ img {
   max-width: 100%;
   height: auto;
   margin-inline: auto;
-}
-
-a:focus, .botao:focus {
-  outline: 2px dashed var(--azul);
-  outline-offset: 2px;
+  image-rendering: optimizeQuality;
+  max-height: 100%;
 }
 
 /* Utilitários */
@@ -61,6 +58,54 @@ a:focus, .botao:focus {
   gap: 1rem;
   align-items: center;
   justify-content: center;
+}
+
+.dashboard {
+  margin-bottom: 40px;
+  color: #fff;
+  width: 100%;
+  margin-inline: auto;
+  padding: 1rem;
+}
+
+.dashboard h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #a8d0e6;
+  font-weight: 600;
+  text-align: center;
+}
+
+.iframe-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+}
+
+.iframe-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Animações */
+[data-animar] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.animado {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Tipografia */
@@ -98,8 +143,18 @@ a:focus, .botao:focus {
   text-align: left;
 }
 
-h1, h2 {
+h1, h2, h3 {
   text-align: center;
+}
+
+.marginSite {
+  margin: 5% 20%;
+}
+
+@media screen and (max-width: 1024px) {
+  .marginSite {
+    margin: 5%;
+  }
 }
 
 /* Cabeçalho */
@@ -125,7 +180,7 @@ nav ul {
   color: var(--branco);
   padding: 0.5rem 1rem;
   border-radius: var(--radius);
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease; 
 }
 
 .botao:hover,
@@ -147,17 +202,81 @@ section {
   border-top: 1px solid #d1dce5;
 }
 
+.containerHabilidades img {
+  border-radius: var(--radius);
+  border: 2px solid var(--azul);
+  box-shadow: var(--shadow);
+}
+
+.containerConvite img {
+  width: 90%;
+  max-width: 320px;
+  height: auto;
+  object-fit: contain;
+  border: 2px solid #002f5f;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Efeito ao passar o mouse no convite */
+.containerConvite img:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-color: #004c99; /* Tom azul um pouco mais claro no hover */
+}
+
+.containerConvite {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.containerConvite figure {
+  margin: 0;
+}
+
+.containerConvite img {
+  width: 320px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.containerTextoConvite {
+  display: flex;
+  flex-direction: column;
+}
+
+.texto {
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.5;
+}
+
 /* Imagem de perfil */
+.circulo img,
+figure img {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
 .circulo img {
   border-radius: 50%;
   max-width: 180px;
-  object-fit: cover;
   border: 3px solid var(--azul);
-  transition: transform 0.4s ease;
 }
 
-.circulo img:hover {
-  transform: scale(1.025);
+.circulo img:hover,
+figure img:hover,
+figure img:focus {
+  transform: scale(1.02);
 }
 
 figure {
@@ -166,24 +285,6 @@ figure {
   align-items: center;
   text-align: center;
   margin-bottom: 2rem;
-}
-
-figure img {
-  max-width: 800px;
-  border-radius: var(--radius);
-  transition: transform 0.4s ease;
-  object-fit: cover;
-}
-
-figure img:hover,
-figure img:focus {
-  transform: scale(1.02);
-}
-
-/* Convite */
-.containerConvite figure img {
-  width: 40%;
-  max-width: 600px;
 }
 
 /* Rodapé */
@@ -205,32 +306,7 @@ footer {
   transform: scale(1.1);
 }
 
-/* Animações */
-[data-animar] {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.animado {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-/* Responsivo */
-@media (max-width: 1024px) {
-  .marginSite {
-    margin: 5%;
-  }
-}
-
+/* Dispositivos Móveis */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
@@ -246,5 +322,88 @@ footer {
 
   .texto {
     font-size: 0.95rem;
+  }
+
+  .containerConvite {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .containerConvite img {
+    width: 90%;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .containerTextoConvite {
+    margin-top: 20px;
+  }
+
+  .texto {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  .containerRedesSociais img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 0.8rem 0;
+  }
+
+  .container {
+    width: 90%;
+    padding: 0;
+  }
+
+  .subtitulo {
+    font-size: 1.4rem;
+  }
+
+  .texto {
+    font-size: 0.9rem;
+  }
+
+  .caixa-textos .texto {
+    width: 100%;
+    max-width: none;
+  }
+
+  .botao {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .circulo img {
+    max-width: 120px;
+  }
+
+  .containerConvite {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .containerConvite img {
+    width: 90%;
+    max-width: 320px;
+  }
+
+  .containerTextoConvite {
+    margin-top: 20px;
+  }
+
+  .texto {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.4;
   }
 }
