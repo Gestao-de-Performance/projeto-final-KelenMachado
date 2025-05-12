@@ -311,7 +311,7 @@ footer {
   color: #ffffff;
   text-align: center;
   padding: 1rem;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   position: relative;
   bottom: 0;
   width: 100%;
@@ -324,7 +324,7 @@ footer {
 /* Dispositivos Móveis */
 @media (max-width: 768px) {
   nav ul {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .circulo img {
