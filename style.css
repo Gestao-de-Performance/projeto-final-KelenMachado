@@ -409,7 +409,7 @@ section {
 
 .legend-container h3 {
   margin-bottom: 10px;
-  font-size: 12px;
+  font-size: 10px;
   color: #003366;
 }
 
@@ -419,11 +419,11 @@ section {
 }
 
 .legend-list li {
-  margin: 8px 0;
+  margin: 0;
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 11px;
+  font-size: 10px;
   color: #333;
 }
 
@@ -437,6 +437,7 @@ section {
   position: relative;
   overflow: hidden;
   max-width: 100%;
+  padding-bottom: 50px;
 }
 
 .carrossel-slides {
@@ -456,8 +457,7 @@ section {
 
 .carrossel-btn {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 10px;
   background-color: #003366cc;
   color: white;
   border: none;
@@ -466,6 +466,11 @@ section {
   cursor: pointer;
   z-index: 10;
   border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carrossel-btn.anterior {
@@ -473,7 +478,7 @@ section {
 }
 
 .carrossel-btn.proximo {
-  right: 50x;
+  right: 50px;
 }
 
 .iframe-wrapper iframe {
