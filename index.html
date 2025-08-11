@@ -330,10 +330,11 @@
     const slides = document.querySelectorAll('.slide');
     const btnAnterior = document.querySelector('.carrossel-btn.anterior');
     const btnProximo = document.querySelector('.carrossel-btn.proximo');
+    const carrosselContainer = document.querySelector('.carrossel-container');
     let slideAtual = 0;
     const autoplayInterval = 4000; // 4 segundos
 
-    // Cria indicadores
+    // Criar indicadores dinamicamente
     const indicadoresContainer = document.createElement('div');
     indicadoresContainer.classList.add('indicadores');
 
@@ -343,13 +344,12 @@
       btn.addEventListener('click', () => {
         slideAtual = i;
         mostrarSlide(slideAtual);
-        resetAutoplay();
         atualizarIndicadores();
+        resetAutoplay();
       });
       indicadoresContainer.appendChild(btn);
     });
 
-    const carrosselContainer = document.querySelector('.carrossel-container');
     carrosselContainer.appendChild(indicadoresContainer);
 
     function mostrarSlide(indice) {
@@ -367,11 +367,7 @@
     function atualizarIndicadores() {
       const botoes = indicadoresContainer.querySelectorAll('button');
       botoes.forEach((btn, i) => {
-        if(i === slideAtual) {
-          btn.classList.add('ativo');
-        } else {
-          btn.classList.remove('ativo');
-        }
+        btn.classList.toggle('ativo', i === slideAtual);
       });
     }
 
@@ -407,43 +403,7 @@
     // Inicialização
     mostrarSlide(slideAtual);
     atualizarIndicadores();
-
-  </script>
-
-  <script>
-    // Cria os botões indicadores dinamicamente
-    const indicadoresContainer = document.createElement('div');
-    indicadoresContainer.classList.add('indicadores');
-
-    slides.forEach((_, i) => {
-      const btn = document.createElement('button');
-      btn.setAttribute('aria-label', `Slide ${i + 1}`);
-      btn.addEventListener('click', () => {
-        slideAtual = i;
-        mostrarSlide(slideAtual);
-        resetAutoplay();
-        atualizarIndicadores();
-      });
-      indicadoresContainer.appendChild(btn);
-    });
-
-    const carrosselContainer = document.querySelector('.carrossel-container');
-    carrosselContainer.appendChild(indicadoresContainer);
-
-    function atualizarIndicadores() {
-      const botoes = indicadoresContainer.querySelectorAll('button');
-      botoes.forEach((btn, i) => {
-        if(i === slideAtual) {
-          btn.classList.add('ativo');
-        } else {
-          btn.classList.remove('ativo');
-        }
-      });
-    }
-
-    mostrarSlide(slideAtual);
-    atualizarIndicadores();
-
+    
   </script>
 
 </body>

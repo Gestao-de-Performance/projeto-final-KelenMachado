@@ -794,6 +794,53 @@ footer {
     width: 100%;
   }
 
+@media (max-width: 768px) {
+  .legend-section {
+    min-width: 150px;
+  }
+
+  .legend-container h3 {
+    font-size: 12px;
+  }
+
+  .legend-list {
+    gap: 8px;
+  }
+
+  .legend-list li {
+    font-size: 12px;
+  }
+
+  .legend-list .stars {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .legend-section {
+    min-width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .legend-container h3 {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .legend-list {
+    justify-content: center; /* centraliza os itens */
+    gap: 6px;
+  }
+
+  .legend-list li {
+    font-size: 14px;
+  }
+
+  .legend-list .stars {
+    font-size: 12px;
+  }
+}
+
   .containerConvite {
     flex-direction: column;
     align-items: center;
