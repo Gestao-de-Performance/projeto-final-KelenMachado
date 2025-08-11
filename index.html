@@ -55,8 +55,10 @@
   </header>
 
   <main>
+
     <section id="sobre" class="containerSobre" aria-labelledby="titulo-sobre">
-      <h1 id="titulo-sobre" class="subtitulo">Sobre</h1>
+      <h1 id="titulo-sobre" class="subtitulo">Kelen Machado</h1>
+      <h2 class="titulo"><strong>Especialista em DP, Analista de RH e Dados</strong></h2>
     </section>
 
     <section class="backgroundContainerSobre">
@@ -64,8 +66,6 @@
         <figure class="circulo">
           <img src="img/Foto_Perfil.webp" width="180" height="180" alt="Foto de Kelen Machado sorrindo" loading="eager" fetchpriority="high" decoding="async" />
         </figure>
-        <h2 class="subtitulonome"><strong>Kelen Machado</strong></h2>
-        <h3 class="titulo"><strong>Especialista em DP, Analista de RH e Dados</strong></h3>
 
         <div class="accordion-container">
           <button class="accordion">Experiência</button>
@@ -165,9 +165,8 @@
     <section id="projetos" class="containerTrabalhos" aria-labelledby="titulo-projetos" style="padding: 60px 20px;">
       <h2 id="titulo-projetos" class="subtitulo" data-animar>Projetos</h2>
 
-      <div class="carrossel-container" data-animar>
+      <div class="carrossel-container">
         <button class="carrossel-btn anterior" aria-label="Projeto anterior">&#10094;</button>
-        <button class="carrossel-btn proximo" aria-label="Próximo projeto">&#10095;</button>
 
         <div class="carrossel-slides">
           <div class="dashboard slide ativo">
@@ -197,6 +196,13 @@
               <iframe title="Site Uníntese" src="https://kelenmachado.github.io/Site-Desenvolvido-em-Sala/" frameborder="0" allowFullScreen="true"></iframe>
             </div>
           </div>
+        </div>
+
+        <button class="carrossel-btn proximo" aria-label="Próximo projeto">&#10095;</button>
+
+        <div class="carrossel-indicators"></div> <!-- container das bolinhas -->      
+
+      </div>
     </section>
 
     <section id="convite" class="containerConvite" aria-labelledby="titulo-convite">
@@ -315,28 +321,82 @@
   </script>
 
   <script>
+    const carrosselSlides = document.querySelector('.carrossel-slides');
     const slides = document.querySelectorAll('.slide');
-    const btnAnterior = document.querySelector('.anterior');
-    const btnProximo = document.querySelector('.proximo');
-    let slideAtual = 0;
+    const btnAnterior = document.querySelector('.carrossel-btn.anterior');
+    const btnProximo = document.querySelector('.carrossel-btn.proximo');
+    const indicadoresContainer = document.querySelector('.carrossel-indicators');
 
-    function mostrarSlide(index) {
-      slides.forEach(slide => slide.classList.remove('ativo'));
-      slides[index].classList.add('ativo');
+    let indiceAtual = 0;
+    let intervalo; // autoplay
+
+    function atualizarCarrossel() {
+      carrosselSlides.style.transform = `translateX(-${indiceAtual * 100}%)`;
+      atualizarIndicadores();
     }
 
-    btnAnterior.addEventListener('click', () => {
-      slideAtual = (slideAtual === 0) ? slides.length - 1 : slideAtual - 1;
-      mostrarSlide(slideAtual);
-    });
+    function atualizarIndicadores() {
+      const botoes = indicadoresContainer.querySelectorAll('button');
+      botoes.forEach((btn, i) => {
+        btn.classList.toggle('active', i === indiceAtual);
+      });
+    }
 
+    // Criar botões indicadores dinamicamente
+    function criarIndicadores() {
+      slides.forEach((_, i) => {
+        const btn = document.createElement('button');
+        btn.addEventListener('click', () => {
+          indiceAtual = i;
+          atualizarCarrossel();
+          resetarAutoplay();
+        });
+        indicadoresContainer.appendChild(btn);
+      });
+    }
+
+    // Botão próximo
     btnProximo.addEventListener('click', () => {
-      slideAtual = (slideAtual === slides.length - 1) ? 0 : slideAtual + 1;
-      mostrarSlide(slideAtual);
+      indiceAtual = (indiceAtual + 1) % slides.length;
+      atualizarCarrossel();
+      resetarAutoplay();
     });
 
-    // Mostrar o primeiro slide ao carregar
-    mostrarSlide(slideAtual);
+    // Botão anterior
+    btnAnterior.addEventListener('click', () => {
+      indiceAtual = (indiceAtual - 1 + slides.length) % slides.length;
+      atualizarCarrossel();
+      resetarAutoplay();
+    });
+
+    // Função autoplay
+    function iniciarAutoplay() {
+      intervalo = setInterval(() => {
+        indiceAtual = (indiceAtual + 1) % slides.length;
+        atualizarCarrossel();
+      }, 4000); // troca a cada 4 segundos
+    }
+
+    // Para o autoplay
+    function pararAutoplay() {
+      clearInterval(intervalo);
+    }
+
+    // Reseta o autoplay quando o usuário interagir
+    function resetarAutoplay() {
+      pararAutoplay();
+      iniciarAutoplay();
+    }
+
+    // Pausar ao passar o mouse
+    carrosselSlides.addEventListener('mouseenter', pararAutoplay);
+    carrosselSlides.addEventListener('mouseleave', iniciarAutoplay);
+
+    // Inicialização
+    atualizarCarrossel();
+    iniciarAutoplay();
+    iniciarAutoplay();
+
   </script>
 
 </body>
