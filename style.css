@@ -246,7 +246,7 @@ section {
 
 /* Estilo do acordeon */
 .accordion-container {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   border-radius: 8px;
   overflow: hidden;
@@ -258,11 +258,13 @@ section {
   color: #fff;
   cursor: pointer;
   padding: 14px;
-  text-align: left;
+  text-align: center;
   border: none;
   outline: none;
-  font-size: 16px;
+  font-size: 18px;
   transition: background-color 0.3s ease;
+  margin-top: 8px;
+  border-radius: 8px 8px 0 0;
 }
 
 .accordion:hover,
@@ -367,25 +369,22 @@ section {
   font-size: 23px;
 }
 
-.accordion {
-  max-width: 800px;
-  margin: auto;
-  text-align: left;
-}
-
 .accordion-toggle {
   background-color: #003366;
   color: white;
   padding: 12px 20px;
   font-size: 16px;
   border: none;
-  width: 100%;
-  text-align: left;
+  width: 80%;
+  max-width: 800px;
+  text-align: center;
   cursor: pointer;
   outline: none;
   transition: background-color 0.3s ease;
-  margin-top: 10px;
-  border-radius: 4px;
+  margin: 0 auto;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  display: block;
 }
 
 .accordion-toggle:hover {
@@ -396,9 +395,11 @@ section {
   background-color: var(--azul-escuro);
   padding: 0 20px;
   max-height: 0;
-  overflow: hidden;
   transition: max-height 0.5s ease-out;
+  max-width: 800px;
+  margin: 0 auto 8px;
   border-radius: 0 0 8px 8px;
+  overflow: hidden;
 }
 
 .accordion-content ul {
