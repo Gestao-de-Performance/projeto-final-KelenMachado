@@ -785,7 +785,8 @@ footer {
   }
 
   .iframe-wrapper {
-    height: 280px; /* Reduz altura para caber melhor na tela */
+    height: auto; 
+    aspect-ratio: 16 / 9;
   }
   
   .carrossel-btn {
@@ -814,7 +815,16 @@ footer {
     font-size: 0.95rem;
   }
 
-  /* Ajusta habilidades para coluna única */
+  .accordion-toggle,
+  .accordion-content {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    gap: 12px;
+  }
+
+  /* Ajusta habilidades para coluna única */  
   .containerSkills {
     flex-direction: column;
     gap: 2rem;
@@ -900,7 +910,8 @@ footer {
 
   /* Ajuste no carrossel */
   .iframe-wrapper {
-    height: 200px; 
+    height: auto;
+    aspect-ratio: 16 / 9;
   }
 
   .carrossel-btn {
