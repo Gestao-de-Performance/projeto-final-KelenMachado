@@ -23,7 +23,8 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"></noscript>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
 
   <link rel="manifest" href="manifest.json">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -63,7 +64,7 @@
     <section class="backgroundContainerSobre">
       <div class="container">
         <figure class="circulo">
-          <img src="img/Foto_Perfil.webp" width="180" height="180" alt="Foto de Kelen Machado sorrindo" loading="eager" fetchpriority="high" decoding="async" />
+          <img src="img/Foto_Perfil.webp" width="180" height="180" alt="Foto de Kelen Machado sorrindo" loading="lazy" fetchpriority="high" decoding="async" />
         </figure>   
 
         <div class="accordion-container">
@@ -98,7 +99,7 @@
     <section id="objetivo" class="containerMVV" aria-label="Missão, Visão e Valores">
       <h2 class="subtitulo">Objetivo</h2>
       <figure>
-        <img src="img/MVV_7.webp" width="650" height="650" alt="Imagem com Missão, Visão e Valores de Kelen Machado" loading="lazy" decoding="async" />
+        <img src="img/MVV_7.webp" width="650" height="650" alt="Imagem com Missão, Visão e Valores de Kelen Machado" loading="lazy" fetchpriority="low" decoding="async" />
       </figure>
     </section>
     
@@ -173,28 +174,28 @@
           <div class="dashboard slide ativo">
             <h3>📊 Gestão de Pessoas</h3>
             <div class="iframe-wrapper">
-              <iframe title="Gestão de Pessoas" src="https://app.powerbi.com/view?r=eyJrIjoiMzI1NmQ5MTUtMTk5OC00ZTIxLWE4OTQtNTc0NzQwNzBlZDFmIiwidCI6IjY4MjcxOGUxLWEyNDItNGYyZS1hNTIzLTI5MmM4YjIzNjJlYiJ9" frameborder="0" allowFullScreen="true"></iframe>
+              <iframe title="Gestão de Pessoas" src="https://app.powerbi.com/view?r=eyJrIjoiMzI1NmQ5MTUtMTk5OC00ZTIxLWE4OTQtNTc0NzQwNzBlZDFmIiwidCI6IjY4MjcxOGUxLWEyNDItNGYyZS1hNTIzLTI5MmM4YjIzNjJlYiJ9" frameborder="0" allowFullScreen="true" loading="lazy"></iframe>
             </div>
           </div>
 
           <div class="dashboard slide">
             <h3>🚚 Logística</h3>
             <div class="iframe-wrapper">
-              <iframe title="Logistica" src="https://app.powerbi.com/view?r=eyJrIjoiMzNhOTA1OTctNjkzNi00Yjg3LTk3ZDYtODE1ZWE0YjFjYTE4IiwidCI6IjY4MjcxOGUxLWEyNDItNGYyZS1hNTIzLTI5MmM4YjIzNjJlYiJ9" frameborder="0" allowFullScreen="true"></iframe>
+              <iframe title="Logistica" src="https://app.powerbi.com/view?r=eyJrIjoiMzNhOTA1OTctNjkzNi00Yjg3LTk3ZDYtODE1ZWE0YjFjYTE4IiwidCI6IjY4MjcxOGUxLWEyNDItNGYyZS1hNTIzLTI5MmM4YjIzNjJlYiJ9" frameborder="0" allowFullScreen="true" loading="lazy"></iframe>
             </div>
           </div>
 
           <div class="dashboard slide">
             <h3>📣 Marketing</h3>
             <div class="iframe-wrapper">
-              <iframe title="Marketing" src="https://app.powerbi.com/view?r=eyJrIjoiMTRhYThkYzctMjI4ZS00NThlLTg4NzUtZWIzMWI2ODUwNzJjIiwidCI6IjY4MjcxOGUxLWEyNDItNGYyZS1hNTIzLTI5MmM4YjIzNjJlYiJ9" frameborder="0" allowFullScreen="true"></iframe>
+              <iframe title="Marketing" src="https://app.powerbi.com/view?r=eyJrIjoiMTRhYThkYzctMjI4ZS00NThlLTg4NzUtZWIzMWI2ODUwNzJjIiwidCI6IjY4MjcxOGUxLWEyNDItNGYyZS1hNTIzLTI5MmM4YjIzNjJlYiJ9" frameborder="0" allowFullScreen="true" loading="lazy"></iframe>
             </div>
           </div>
 
           <div class="dashboard slide">
             <h3>🌐 Site da Uníntese</h3>
             <div class="iframe-wrapper">
-              <iframe title="Site Uníntese" src="https://kelenmachado.github.io/Site-Desenvolvido-em-Sala/" frameborder="0" allowFullScreen="true"></iframe>
+              <iframe title="Site Uníntese" src="https://kelenmachado.github.io/Site-Desenvolvido-em-Sala/" frameborder="0" allowFullScreen="true" loading="lazy"></iframe>
             </div>
           </div>
         </div>
@@ -405,6 +406,23 @@
     atualizarIndicadores();
     
   </script>
+
+  <script defer>
+    document.addEventListener("DOMContentLoaded", () => {
+      const lazyIframes = document.querySelectorAll("iframe[data-src]");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const iframe = entry.target;
+            iframe.src = iframe.dataset.src;
+            observer.unobserve(iframe);
+          }
+        });
+      }, { rootMargin: "200px" });
+
+      lazyIframes.forEach(iframe => observer.observe(iframe));
+    });
+</script>
 
 </body>
 
