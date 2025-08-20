@@ -34,6 +34,18 @@ html {
   }
 }
 
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  src: url('https://fonts.gstatic.com/s/inter/v12/UcC72Bkyd8M.woff2') format('woff2');
+  font-display: swap;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
 body {
   font-family: var(--fonte);
   background-color: var(--azul-claro);
