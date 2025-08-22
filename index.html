@@ -18,18 +18,24 @@
 
   <link rel="icon" href="img/Icone_Port.png" type="image/x-icon">
   
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"></noscript>
-
-  <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="style.css"></noscript>
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"></noscript>
 
   <link rel="manifest" href="manifest.json">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="apple-touch-icon" href="img/icon-192.png">
+  <link rel="preload" as="image" href="img/Foto_Perfil.webp">
+
+  <style>
+    body{margin:0;font-family:'Inter',sans-serif;}
+    header, main{display:block;}
+    nav ul{display:flex;gap:10px;}
+    h1,h2{margin:0;}
+  </style>
+  <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
   <style>
     a:focus-visible, button:focus-visible {
@@ -99,7 +105,7 @@
     <section id="objetivo" class="containerMVV" aria-label="Missão, Visão e Valores">
       <h2 class="subtitulo">Objetivo</h2>
       <figure>
-        <img src="img/MVV_7.webp" width="650" height="650" alt="Imagem com Missão, Visão e Valores de Kelen Machado" loading="lazy" decoding="async" fetchpriority="low">
+        <img src="img/MVV_7.webp" width="800" height="400" alt="Imagem com Missão, Visão e Valores de Kelen Machado" loading="lazy" decoding="async" fetchpriority="low">
       </figure>
     </section>
     
@@ -174,28 +180,28 @@
           <div class="dashboard slide ativo">
             <h3>📊 Gestão de Pessoas</h3>
             <div class="iframe-wrapper">
-              <iframe title="Gestão de Pessoas" data-src="https://app.powerbi.com/view?r=eyJrIjoiMzI1NmQ5MTUtMTk5OC00ZTIxLWE4OTQtNTc0NzQwNzBlZDFmIiwidCI6IjY4MjcxOGUxLWEyNDItNGYyZS1hNTIzLTI5MmM4YjIzNjJlYiJ9" frameborder="0" allowfullscreen loading="lazy"></iframe>
+              <iframe title="Gestão de Pessoas" data-src="https://app.powerbi.com/view?r=eyJrIjoiMzI1NmQ5MTUtMTk5OC00ZTIxLWE4OTQtNTc0NzQwNzBlZDFmIiwidCI6IjY4MjcxOGUxLWEyNDItNGYyZS1hNTIzLTI5MmM4YjIzNjJlYiJ9" width="560" height="315" frameborder="0" allowfullscreen loading="lazy"></iframe>
             </div>
           </div>
 
           <div class="dashboard slide">
             <h3>🚚 Logística</h3>
             <div class="iframe-wrapper">
-              <iframe title="Logistica" data-src="https://app.powerbi.com/view?r=eyJrIjoiMzNhOTA1OTctNjkzNi00Yjg3LTk3ZDYtODE1ZWE0YjFjYTE4IiwidCI6IjY4MjcxOGUxLWEyNDItNGYyZS1hNTIzLTI5MmM4YjIzNjJlYiJ9" frameborder="0" allowfullscreen loading="lazy"></iframe>
+              <iframe title="Logistica" data-src="https://app.powerbi.com/view?r=eyJrIjoiMzNhOTA1OTctNjkzNi00Yjg3LTk3ZDYtODE1ZWE0YjFjYTE4IiwidCI6IjY4MjcxOGUxLWEyNDItNGYyZS1hNTIzLTI5MmM4YjIzNjJlYiJ9" width="560" height="315" frameborder="0" allowfullscreen loading="lazy"></iframe>
             </div>
           </div>
 
           <div class="dashboard slide">
             <h3>📣 Marketing</h3>
             <div class="iframe-wrapper">
-              <iframe title="Marketing" data-src="https://app.powerbi.com/view?r=eyJrIjoiMTRhYThkYzctMjI4ZS00NThlLTg4NzUtZWIzMWI2ODUwNzJjIiwidCI6IjY4MjcxOGUxLWEyNDItNGYyZS1hNTIzLTI5MmM4YjIzNjJlYiJ9" frameborder="0" allowfullscreen loading="lazy"></iframe>
+              <iframe title="Marketing" data-src="https://app.powerbi.com/view?r=eyJrIjoiMTRhYThkYzctMjI4ZS00NThlLTg4NzUtZWIzMWI2ODUwNzJjIiwidCI6IjY4MjcxOGUxLWEyNDItNGYyZS1hNTIzLTI5MmM4YjIzNjJlYiJ9" width="560" height="315" frameborder="0" allowfullscreen loading="lazy"></iframe>
             </div>
           </div>
 
           <div class="dashboard slide">
             <h3>🌐 Site da Uníntese</h3>
             <div class="iframe-wrapper">
-              <iframe title="Site Uníntese" data-src="https://kelenmachado.github.io/Site-Desenvolvido-em-Sala/" frameborder="0" allowfullscreen loading="lazy"></iframe>
+              <iframe title="Site Uníntese" data-src="https://kelenmachado.github.io/Site-Desenvolvido-em-Sala/" width="560" height="315" frameborder="0" allowfullscreen loading="lazy"></iframe>
             </div>
           </div>
         </div>
@@ -208,7 +214,7 @@
     <section id="convite" class="containerConvite" aria-labelledby="titulo-convite">
       <div class="containerConvite">
         <figure>
-          <img src="img/Convite_2.webp" alt="Imagem de convite para contato" loading="lazy" decoding="async" />
+          <img src="img/Convite_2.webp" width="800" height="400" alt="Imagem de convite para contato" loading="lazy" decoding="async" />
         </figure>
       </div>
 
@@ -225,11 +231,11 @@
     <div class="containerRodape">
       <div id="contato" class="containerRedesSociais" aria-label="Redes Sociais">
         <div class="flex">
-          <a href="https://www.linkedin.com/in/kelen-machado-758b393a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="img/linkedin.png" alt="Linkedin" aria-hidden="true" loading="lazy" decoding="async" /></a>
-          <a href="https://github.com/KelenMachado" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><img src="img/GitHub.png" alt="GitHub" aria-hidden="true" loading="lazy" decoding="async" /></a>
-          <a href="https://wa.me/556199225486" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><img src="img/whatsapp.png" alt="Whatsapp" aria-hidden="true" loading="lazy" decoding="async" /></a>
-          <a href="mailto:kelenribcarvalho@gmail.com?subject=Assunto%20do%20E-mail&body=Olá%2C%20gostaria%20de%20ter%20o%20seu%20apoio%20na%20análise%20de%20dados%20do%20meu%20negócio." target="_blank" rel="noopener noreferrer" aria-label="E-mail"><img src="img/E-mail.png" alt="E-mail" aria-hidden="true" loading="lazy" decoding="async" /></a>
-          <a href="https://www.instagram.com/kelenribcarvalho/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="img/instagram.png" alt="Instagram" aria-hidden="true" loading="lazy" decoding="async" /></a>
+          <a href="https://www.linkedin.com/in/kelen-machado-758b393a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="img/linkedin.png" width="30" height="30" alt="Linkedin" aria-hidden="true" loading="lazy" decoding="async" /></a>
+          <a href="https://github.com/KelenMachado" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><img src="img/GitHub.png" width="30" height="30" alt="GitHub" aria-hidden="true" loading="lazy" decoding="async" /></a>
+          <a href="https://wa.me/556199225486" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><img src="img/whatsapp.png" width="30" height="30" alt="Whatsapp" aria-hidden="true" loading="lazy" decoding="async" /></a>
+          <a href="mailto:kelenribcarvalho@gmail.com?subject=Assunto%20do%20E-mail&body=Olá%2C%20gostaria%20de%20ter%20o%20seu%20apoio%20na%20análise%20de%20dados%20do%20meu%20negócio." target="_blank" rel="noopener noreferrer" aria-label="E-mail"><img src="img/E-mail.png" width="30" height="30" alt="E-mail" aria-hidden="true" loading="lazy" decoding="async" /></a>
+          <a href="https://www.instagram.com/kelenribcarvalho/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="img/instagram.png" width="30" height="30" alt="Instagram" aria-hidden="true" loading="lazy" decoding="async" /></a>
       </div>
     </div>
   </footer>
@@ -275,7 +281,7 @@
     
   </script>
 
-  <script>
+  <script defer>
     const acc = document.querySelectorAll(".accordion");
 
     acc.forEach(button => {
@@ -298,7 +304,7 @@
     });
   </script>
 
-  <script>
+  <script defer>
     const toggles = document.querySelectorAll(".accordion-toggle");
 
     toggles.forEach((toggle) => {
@@ -327,7 +333,7 @@
 
   </script>
 
-  <script>
+  <script defer>
     const slides = document.querySelectorAll('.slide');
     const btnAnterior = document.querySelector('.carrossel-btn.anterior');
     const btnProximo = document.querySelector('.carrossel-btn.proximo');
